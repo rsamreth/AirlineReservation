@@ -15,8 +15,22 @@ public class AirlineReservationForm extends javax.swing.JFrame {
     /**
      * Creates new form AirlineReservationForm
      */
+
+ 	int sectionSelect;
+        int firstClass;
+        int economyClass;
+ 	boolean seats[];
+ 	boolean question = false;
+    
     public AirlineReservationForm() {
         initComponents();
+        
+        firstClass = 0;
+	economyClass = 5;
+	seats = new boolean[10];
+	for(int index = 0;index < seats.length;index++)
+	seats[index] = false;
+
     }
 
     /**
@@ -28,22 +42,142 @@ public class AirlineReservationForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        userInput = new javax.swing.JTextField();
+        prompt = new javax.swing.JLabel();
+        yesButton = new javax.swing.JButton();
+        noButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        userInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userInputActionPerformed(evt);
+            }
+        });
+
+        prompt.setText("Please type 1 for First Class or type 2 for Economy Class");
+
+        yesButton.setText("YES");
+        yesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yesButtonActionPerformed(evt);
+            }
+        });
+
+        noButton.setText("NO");
+        noButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(prompt, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(yesButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(noButton))
+                    .addComponent(userInput, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(userInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(prompt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(yesButton)
+                    .addComponent(noButton))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(132, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void userInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userInputActionPerformed
+        // TODO add your handling code here:
+                sectionSelect = Integer.parseInt(userInput.getText());
+		String output = "";
+		question = false;
+                
+                if (sectionSelect == 1)
+                {
+                    if (firstClass<5)
+                    {
+                    seats[firstClass]=true;
+                    output = "First Class. Seat #"+ ++firstClass;
+                    }
+                    else if (firstClass>=5 && economyClass<10)
+                    {
+                    output = "First Class is full. Economy Class?";
+                    question = true;
+                    }
+                    else output = "Flight is full. Try next flight.";
+		}	
+                
+		else if (sectionSelect == 2)
+		{
+                    if(economyClass < 10)
+                        {
+                        seats[economyClass] = true;
+                        output = "Economy Class. Seat #"+ ++economyClass;
+                        }
+		else if (economyClass == 10 && firstClass < 5)
+                    {
+                    output = "Economy class is full. First Class?";
+                    question = true;
+                    }
+		else output = "Flight is full. Try next flight.";
+		}
+		
+                else 
+                output = "Invalid input.";
+		showMessage(output);
+                
+    }//GEN-LAST:event_userInputActionPerformed
+
+    private void yesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesButtonActionPerformed
+        // TODO add your handling code here:
+                if (question)
+                {
+                    if (sectionSelect == 1)
+                     {
+                      seats[economyClass] = true;
+                      showMessage("Economy Class.Seat #"+ ++economyClass);
+                     }
+                    else
+                        {
+                        seats[firstClass] = true;
+                        showMessage("First Class. Seat #"+ ++firstClass);
+                        }
+                    question = false;
+                }
+    }//GEN-LAST:event_yesButtonActionPerformed
+
+    private void noButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noButtonActionPerformed
+        // TODO add your handling code here:
+        if(question)
+                showMessage("Next flight leaves in 3 hours.");
+                
+	question = false;
+                
+    }//GEN-LAST:event_noButtonActionPerformed
+
+
+    
     /**
      * @param args the command line arguments
      */
@@ -78,7 +212,17 @@ public class AirlineReservationForm extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void showMessage(String message)
+    {
+        jLabel1.setText(message);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton noButton;
+    private javax.swing.JLabel prompt;
+    private javax.swing.JTextField userInput;
+    private javax.swing.JButton yesButton;
     // End of variables declaration//GEN-END:variables
 }
