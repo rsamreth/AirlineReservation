@@ -1,23 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package airlinereservation;
 
-/**
- *
- * @author Samreth, Ritty
- * @author Ben, Sethey
- */
-public class AirlineReservationForm extends javax.swing.JFrame {
+import java.awt.Color;
 
+/**
+ * This class represents the GUI interface for Airline Reservation.
+ * @see Airline Reservation
+ * @author Samreth, Ritty
+ * @author Reginato, Adolfo
+ * @author Ben, Sethey 
+ */
+
+public class AirlineReservationForm extends javax.swing.JFrame {
     /**
      * Creates new form AirlineReservationForm
      */
-
- 	
  	int sectionSelect;
         int firstClass;
         int economyClass;
@@ -26,15 +23,15 @@ public class AirlineReservationForm extends javax.swing.JFrame {
     
     public AirlineReservationForm() {
         initComponents();
-        
         firstClass = 0;
 	economyClass = 5;
 	seats = new boolean[10];
 	for(int index = 0;index < seats.length;index++)
 	seats[index] = false;
+        this.getContentPane().setBackground( new Color (2,44,82));
 
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,34 +41,34 @@ public class AirlineReservationForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         userInput = new javax.swing.JTextField();
         classLabel = new javax.swing.JLabel();
         yesButton = new javax.swing.JButton();
         noButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(750, 675));
-        getContentPane().setLayout(null);
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(742, 7, 290, 52);
+        logo = new javax.swing.JLabel();
+        horizontalBar = new javax.swing.JSeparator();
+        title = new javax.swing.JLabel();
+        slogan = new javax.swing.JLabel();
+        verticalBar = new javax.swing.JSeparator();
+        seatPlan = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(742, 0, 300, 0);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(610, 450));
+        getContentPane().setLayout(null);
 
         userInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,12 +76,13 @@ public class AirlineReservationForm extends javax.swing.JFrame {
             }
         });
         getContentPane().add(userInput);
-        userInput.setBounds(150, 380, 40, 20);
+        userInput.setBounds(10, 140, 40, 20);
 
         classLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        classLabel.setForeground(new java.awt.Color(255, 255, 255));
         classLabel.setText("Enter 1 for First Class or 2 for Economy Class");
         getContentPane().add(classLabel);
-        classLabel.setBounds(200, 380, 320, 20);
+        classLabel.setBounds(60, 140, 320, 20);
 
         yesButton.setText("YES");
         yesButton.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +91,7 @@ public class AirlineReservationForm extends javax.swing.JFrame {
             }
         });
         getContentPane().add(yesButton);
-        yesButton.setBounds(150, 520, 70, 23);
+        yesButton.setBounds(10, 230, 70, 23);
 
         noButton.setText("NO");
         noButton.addActionListener(new java.awt.event.ActionListener() {
@@ -102,16 +100,44 @@ public class AirlineReservationForm extends javax.swing.JFrame {
             }
         });
         getContentPane().add(noButton);
-        noButton.setBounds(240, 520, 70, 23);
+        noButton.setBounds(100, 230, 70, 23);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(150, 470, 360, 30);
+        jLabel3.setBounds(10, 180, 360, 30);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/airlinereservation/airplane.jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(10, -3, 714, 620);
+        logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/airlinereservation/logo.gif"))); // NOI18N
+        getContentPane().add(logo);
+        logo.setBounds(10, 10, 120, 100);
+        getContentPane().add(horizontalBar);
+        horizontalBar.setBounds(0, 120, 650, 50);
+
+        title.setFont(new java.awt.Font("Impact", 2, 50)); // NOI18N
+        title.setForeground(new java.awt.Color(255, 255, 255));
+        title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        title.setText("RSA Airlines");
+        getContentPane().add(title);
+        title.setBounds(180, 10, 270, 90);
+
+        slogan.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        slogan.setForeground(new java.awt.Color(255, 255, 255));
+        slogan.setText("What's your destination?");
+        getContentPane().add(slogan);
+        slogan.setBounds(350, 80, 240, 40);
+
+        verticalBar.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        getContentPane().add(verticalBar);
+        verticalBar.setBounds(140, 0, 50, 120);
+
+        seatPlan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/airlinereservation/seats.gif"))); // NOI18N
+        getContentPane().add(seatPlan);
+        seatPlan.setBounds(410, 120, 190, 300);
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        getContentPane().add(jSeparator1);
+        jSeparator1.setBounds(400, 120, 40, 300);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -119,59 +145,58 @@ public class AirlineReservationForm extends javax.swing.JFrame {
     private void userInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userInputActionPerformed
         // TODO add your handling code here:
         sectionSelect = Integer.parseInt(userInput.getText());
-		String output = "";
-		question = false;
+        String output = "";
+	question = false;
                 
-                if (sectionSelect == 1)
-                {
-                    if (firstClass<5)
+        if (sectionSelect == 1)
+            {
+                if (firstClass<5)
                     {
-                    seats[firstClass]=true;
-                    output = "First Class. Seat #"+ ++firstClass;
+                        seats[firstClass]=true;
+                        output = "First Class. Seat #"+ ++firstClass;
                     }
-                    else if (firstClass>=5 && economyClass<10)
+                else if (firstClass>=5 && economyClass<10)
                     {
-                    output = "First Class is full. Economy Class?";
-                    question = true;
+                        output = "First Class is full. Economy Class?";
+                        question = true;
                     }
-                    else output = "Flight is full. Try next flight.";
-		}	
+                else output = "Flight is full. Try next flight.";
+            }	
                 
-		else if (sectionSelect == 2)
-		{
-                    if(economyClass < 10)
-                        {
+        else if (sectionSelect == 2)
+            {
+                if(economyClass < 10)
+                    {
                         seats[economyClass] = true;
                         output = "Economy Class. Seat #"+ ++economyClass;
-                        }
+                    }
 		else if (economyClass == 10 && firstClass < 5)
                     {
-                    output = "Economy class is full. First Class?";
-                    question = true;
+                        output = "Economy class is full. First Class?";
+                        question = true;
                     }
 		else output = "Flight is full. Try next flight.";
-		}
-
-                else 
-                output = "Invalid input.";
-		showMessage(output);
+            }
+        else 
+            output = "Invalid input.";
+            showMessage(output);
     }//GEN-LAST:event_userInputActionPerformed
 
     private void yesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesButtonActionPerformed
         // TODO add your handling code here:
         if (question)
-                {
-                    if (sectionSelect == 1)
-                     {
-                      seats[economyClass] = true;
-                      showMessage("Economy Class.Seat #"+ ++economyClass);
+            {
+                if (sectionSelect == 1)
+                    {
+                        seats[economyClass] = true;
+                        showMessage("Economy Class.Seat #"+ ++economyClass);
                      }
-                    else
-                        {
+                else
+                    {
                         seats[firstClass] = true;
                         showMessage("First Class. Seat #"+ ++firstClass);
-                        }
-                    question = false;
+                    }
+                question = false;
                 }
     }//GEN-LAST:event_yesButtonActionPerformed
 
@@ -179,8 +204,7 @@ public class AirlineReservationForm extends javax.swing.JFrame {
         // TODO add your handling code here:
          if(question)
                 showMessage("Next flight leaves in 3 hours.");
-                
-	question = false;
+                question = false;        
     }//GEN-LAST:event_noButtonActionPerformed
 
 
@@ -227,12 +251,17 @@ public class AirlineReservationForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel classLabel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JSeparator horizontalBar;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel logo;
     private javax.swing.JButton noButton;
+    private javax.swing.JLabel seatPlan;
+    private javax.swing.JLabel slogan;
+    private javax.swing.JLabel title;
     private javax.swing.JTextField userInput;
+    private javax.swing.JSeparator verticalBar;
     private javax.swing.JButton yesButton;
     // End of variables declaration//GEN-END:variables
 }

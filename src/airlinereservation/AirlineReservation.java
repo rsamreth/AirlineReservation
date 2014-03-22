@@ -1,25 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package airlinereservation;
 
 /**
- *
- * @author rsam
+ * @author Samreth, Ritty
+ * @author Reginato, Adolfo
+ * @author Ben, Sethey
+ * 
  */
 public class AirlineReservation {
-
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        AirlineReservationForm form = new AirlineReservationForm();
-        //Show Form
-        form.setVisible(true);
+
+public static void main(String[] args) {
+// TODO code application logic here
+    AirlineReservationForm form = new AirlineReservationForm();
+//Show Form
+    form.setVisible(true);
     }
-    
 }
