@@ -8,7 +8,7 @@ package airlinereservation;
 
 /**
  *
- * @author rsam
+ * @author Samreth, Ritty
  */
 public class AirlineReservationForm extends javax.swing.JFrame {
 
