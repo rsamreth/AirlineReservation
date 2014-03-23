@@ -52,8 +52,18 @@ public class AirlineReservationForm extends javax.swing.JFrame {
         title = new javax.swing.JLabel();
         slogan = new javax.swing.JLabel();
         verticalBar = new javax.swing.JSeparator();
+        seat4 = new javax.swing.JLabel();
+        seat1 = new javax.swing.JLabel();
+        seat3 = new javax.swing.JLabel();
+        seat2 = new javax.swing.JLabel();
+        seat5 = new javax.swing.JLabel();
+        seat6 = new javax.swing.JLabel();
+        seat7 = new javax.swing.JLabel();
+        seat8 = new javax.swing.JLabel();
+        seat9 = new javax.swing.JLabel();
+        seat10 = new javax.swing.JLabel();
         seatPlan = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
+        verticalBar2 = new javax.swing.JSeparator();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -131,13 +141,66 @@ public class AirlineReservationForm extends javax.swing.JFrame {
         getContentPane().add(verticalBar);
         verticalBar.setBounds(140, 0, 50, 120);
 
+        seat4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        seat4.setText("#4");
+        getContentPane().add(seat4);
+        seat4.setBounds(470, 230, 40, 20);
+
+        seat1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        seat1.setText("#1");
+        getContentPane().add(seat1);
+        seat1.setBounds(510, 170, 40, 14);
+
+        seat3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        seat3.setText("#3");
+        getContentPane().add(seat3);
+        seat3.setBounds(540, 190, 60, 30);
+
+        seat2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        seat2.setText("#2");
+        getContentPane().add(seat2);
+        seat2.setBounds(480, 194, 40, 20);
+
+        seat5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        seat5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        seat5.setText("#5");
+        getContentPane().add(seat5);
+        seat5.setBounds(530, 220, 70, 40);
+
+        seat6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        seat6.setText("#6");
+        getContentPane().add(seat6);
+        seat6.setBounds(474, 330, 50, 20);
+
+        seat7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        seat7.setText("#7");
+        getContentPane().add(seat7);
+        seat7.setBounds(554, 330, 40, 20);
+
+        seat8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        seat8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        seat8.setText("#8");
+        getContentPane().add(seat8);
+        seat8.setBounds(460, 350, 40, 30);
+
+        seat9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        seat9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        seat9.setText("#9");
+        getContentPane().add(seat9);
+        seat9.setBounds(544, 354, 40, 20);
+
+        seat10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        seat10.setText("#10");
+        getContentPane().add(seat10);
+        seat10.setBounds(490, 380, 50, 20);
+
         seatPlan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/airlinereservation/seats.gif"))); // NOI18N
         getContentPane().add(seatPlan);
         seatPlan.setBounds(410, 120, 190, 300);
 
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(400, 120, 40, 300);
+        verticalBar2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        getContentPane().add(verticalBar2);
+        verticalBar2.setBounds(400, 120, 40, 300);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -254,14 +317,24 @@ public class AirlineReservationForm extends javax.swing.JFrame {
     private javax.swing.JSeparator horizontalBar;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel logo;
     private javax.swing.JButton noButton;
+    private javax.swing.JLabel seat1;
+    private javax.swing.JLabel seat10;
+    private javax.swing.JLabel seat2;
+    private javax.swing.JLabel seat3;
+    private javax.swing.JLabel seat4;
+    private javax.swing.JLabel seat5;
+    private javax.swing.JLabel seat6;
+    private javax.swing.JLabel seat7;
+    private javax.swing.JLabel seat8;
+    private javax.swing.JLabel seat9;
     private javax.swing.JLabel seatPlan;
     private javax.swing.JLabel slogan;
     private javax.swing.JLabel title;
     private javax.swing.JTextField userInput;
     private javax.swing.JSeparator verticalBar;
+    private javax.swing.JSeparator verticalBar2;
     private javax.swing.JButton yesButton;
     // End of variables declaration//GEN-END:variables
 }
