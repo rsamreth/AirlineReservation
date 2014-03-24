@@ -1,7 +1,7 @@
 
 package airlinereservation;
 
-import java.awt.Color;
+import java.awt.*;
 
 /**
  * This class represents the GUI interface for Airline Reservation.
@@ -20,6 +20,7 @@ public class AirlineReservationForm extends javax.swing.JFrame {
         int economyClass;
  	boolean seats[];
  	boolean question = false;
+        Image[ ] seatImages; //variable for photo array
     
     public AirlineReservationForm() {
         initComponents();
@@ -29,7 +30,9 @@ public class AirlineReservationForm extends javax.swing.JFrame {
 	for(int index = 0;index < seats.length;index++)
 	seats[index] = false;
         this.getContentPane().setBackground( new Color (2,44,82));
-
+        noButton.setEnabled(false);
+        yesButton.setEnabled(false);
+        
     }
     
     /**
@@ -118,9 +121,9 @@ public class AirlineReservationForm extends javax.swing.JFrame {
         jLabel3.setBounds(10, 180, 360, 30);
 
         logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/airlinereservation/logo.gif"))); // NOI18N
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/airlinereservation/airplane.jpg"))); // NOI18N
         getContentPane().add(logo);
-        logo.setBounds(10, 10, 120, 100);
+        logo.setBounds(0, 0, 140, 120);
         getContentPane().add(horizontalBar);
         horizontalBar.setBounds(0, 120, 650, 50);
 
@@ -194,7 +197,7 @@ public class AirlineReservationForm extends javax.swing.JFrame {
         getContentPane().add(seat10);
         seat10.setBounds(490, 380, 50, 20);
 
-        seatPlan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/airlinereservation/seats.gif"))); // NOI18N
+        seatPlan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/airlinereservation/planeLayout.gif"))); // NOI18N
         getContentPane().add(seatPlan);
         seatPlan.setBounds(410, 120, 190, 300);
 
@@ -210,6 +213,8 @@ public class AirlineReservationForm extends javax.swing.JFrame {
         sectionSelect = Integer.parseInt(userInput.getText());
         String output = "";
 	question = false;
+        noButton.setEnabled(false);
+        yesButton.setEnabled(false);
                 
         if (sectionSelect == 1)
             {
@@ -222,8 +227,15 @@ public class AirlineReservationForm extends javax.swing.JFrame {
                     {
                         output = "First Class is full. Economy Class?";
                         question = true;
+                        noButton.setEnabled(true);
+                        yesButton.setEnabled(true);
+                        userInput.setText("");
+                        userInput.requestFocus();
                     }
-                else output = "Flight is full. Try next flight.";
+                else {
+                    output = "Flight is full. Try next flight.";
+                    userInput.setText("");
+                }
             }	
                 
         else if (sectionSelect == 2)
@@ -237,8 +249,15 @@ public class AirlineReservationForm extends javax.swing.JFrame {
                     {
                         output = "Economy class is full. First Class?";
                         question = true;
+                        noButton.setEnabled(true);
+                        yesButton.setEnabled(true);
+                        userInput.setText("");
+                        userInput.requestFocus();
                     }
-		else output = "Flight is full. Try next flight.";
+		else {
+                    output = "Flight is full. Try next flight.";
+                    userInput.setText("");
+                }
             }
         else 
             output = "Invalid input.";
@@ -247,6 +266,9 @@ public class AirlineReservationForm extends javax.swing.JFrame {
 
     private void yesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesButtonActionPerformed
         // TODO add your handling code here:
+        noButton.setEnabled(false);
+        yesButton.setEnabled(false);
+        
         if (question)
             {
                 if (sectionSelect == 1)
@@ -265,11 +287,17 @@ public class AirlineReservationForm extends javax.swing.JFrame {
 
     private void noButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noButtonActionPerformed
         // TODO add your handling code here:
+        noButton.setEnabled(false);
+        yesButton.setEnabled(false);
          if(question)
-                showMessage("Next flight leaves in 3 hours.");
-                question = false;        
+              showMessage("Next flight leaves in 3 hours.");
+              question = false;        
     }//GEN-LAST:event_noButtonActionPerformed
 
+    public void arrayPhoto() {
+        seatImages = new Image[10];
+        seatImages[0] = getImage( getDocumentBase(), "redSeat.gif");
+    }
 
     
     /**
